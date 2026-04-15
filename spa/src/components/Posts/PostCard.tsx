@@ -17,9 +17,12 @@ type PostCardProps = {
 const PostCard = ({ _id, content, image, title, author, setPosts }: PostCardProps) => {
   const { user } = useAuth();
 
+  // useRef allows us to use reference DOM elements while keeping React in the loop
+  // https://react.dev/reference/react/useRef#manipulating-the-dom-with-a-ref
   const editModalRef = useRef<HTMLDialogElement | null>(null);
   const deleteModalRef = useRef<HTMLDialogElement | null>(null);
 
+  // so instead of document.querySelector('#modal-id').showModal(), we can use the ref
   const showEditModal = () => editModalRef.current?.showModal();
   const showDeleteModal = () => deleteModalRef.current?.showModal();
 

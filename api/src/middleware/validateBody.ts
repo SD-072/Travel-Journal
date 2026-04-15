@@ -1,5 +1,5 @@
 import type { RequestHandler } from 'express';
-import { z, type ZodObject } from 'zod';
+import { type ZodObject, z } from 'zod';
 
 const validateBody =
   (zodSchema: ZodObject): RequestHandler =>
